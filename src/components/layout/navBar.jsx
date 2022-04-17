@@ -5,11 +5,7 @@ const NavBar = () => {
     <nav id="navbar" className="navbar">
       <ul>
         <li>
-          <NavLink
-            activeClassName="active"
-            className="nav-link scrollto"
-            to="/"
-          >
+          <NavLink activeClassName="active" className="nav-link scrollto" to="">
             Home
           </NavLink>
           {/* <a className="nav-link scrollto active" href="#hero">
@@ -20,7 +16,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="/about"
+            to="about"
           >
             About
           </NavLink>
@@ -29,7 +25,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="/services"
+            to="services"
           >
             Services
           </NavLink>
@@ -38,7 +34,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto "
-            to="/work"
+            to="work"
           >
             Work
           </NavLink>
@@ -47,7 +43,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="/contact"
+            to="contact"
           >
             Contact
           </NavLink>
