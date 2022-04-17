@@ -16,7 +16,8 @@ jobs:
           node-version: "14.x"
       - run: npm install
       - run: npm run build
-      - run: npm test
+        env:
+          CI: ""
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
