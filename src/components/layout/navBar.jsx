@@ -5,7 +5,11 @@ const NavBar = () => {
     <nav id="navbar" className="navbar">
       <ul>
         <li>
-          <NavLink activeClassName="active" className="nav-link scrollto" to="">
+          <NavLink
+            activeClassName="active"
+            className="nav-link scrollto"
+            to={`${process.env.PUBLIC_URL}`}
+          >
             Home
           </NavLink>
           {/* <a className="nav-link scrollto active" href="#hero">
@@ -16,7 +20,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="about"
+            to={`${process.env.PUBLIC_URL}/about`}
           >
             About
           </NavLink>
@@ -25,7 +29,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="services"
+            to={`${process.env.PUBLIC_URL}/services`}
           >
             Services
           </NavLink>
@@ -34,7 +38,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto "
-            to="work"
+            to={`${process.env.PUBLIC_URL}/work`}
           >
             Work
           </NavLink>
@@ -43,7 +47,7 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to="contact"
+            to={`${process.env.PUBLIC_URL}/contact`}
           >
             Contact
           </NavLink>

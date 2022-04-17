@@ -11,11 +11,27 @@ const Content = () => {
     <div className="container mt-100">
       <Routes>
         <React.Fragment>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/services" element={<Services />}></Route>
-          <Route path="/work" element={<Work />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/`}
+            element={<Home />}
+          ></Route>
+          <Route
+            path={`${process.env.PUBLIC_URL}/about`}
+            element={<About />}
+          ></Route>
+          <Route
+            path={`${process.env.PUBLIC_URL}/services`}
+            element={<Services />}
+          ></Route>
+          <Route
+            path={`${process.env.PUBLIC_URL}/work`}
+            element={<Work />}
+          ></Route>
+          <Route
+            path={`${process.env.PUBLIC_URL}/contact`}
+            element={<Contact />}
+          ></Route>
         </React.Fragment>
       </Routes>
     </div>
