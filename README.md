@@ -1,7 +1,7 @@
 # DevFolio-React
 
 DevFolio-React is based on a free HTML based template [DevFolio](https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/).
-The idea behind this project is to turn this static portfolio into a full-fledge open source database driven portfolio which anyone can use and setup thei personal profile without any hassle.
+The idea behind this project is to turn this static portfolio into a full-fledge open source dynamic portfolio which anyone can use and setup thei personal profile without any hassle.
 
 ## Current Version
 
