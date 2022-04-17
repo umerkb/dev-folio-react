@@ -10,5 +10,5 @@ As a first step, the static HTML based portfolio has been converted into a React
 ## Next Steps
 I will keep working on this as a hobby project and would turn it into a data driven portfolio - which is open source and anyone can benefit from it. Contributions are always welcome :) 
 
-## Live Demo
-[DevFolio-React](https://umerkb.github.io/dev-folio-react/).
+# Live Demo
+##[DevFolio-React](https://umerkb.github.io/dev-folio-react/).
