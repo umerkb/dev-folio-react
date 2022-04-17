@@ -60,7 +60,7 @@ const About = (props) => {
                             <span className="title-s">Phone: </span>
                           </div>
                           <div className="col-md-9 text-left">
-                            <span>+92-334-4369654</span>
+                            <span>111-111-111</span>
                           </div>
                         </div>
                       </div>
