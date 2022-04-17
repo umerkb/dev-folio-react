@@ -8,7 +8,8 @@ const NavBar = () => {
           <NavLink
             activeClassName="active"
             className="nav-link scrollto"
-            to={`${process.env.PUBLIC_URL}`}
+            exact
+            to={`${process.env.PUBLIC_URL}/`}
           >
             Home
           </NavLink>

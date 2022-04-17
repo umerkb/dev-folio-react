@@ -8,7 +8,7 @@ import React from "react";
 
 const Content = () => {
   return (
-    <div className="container mt-100">
+    <div className="container mt-100 app-container">
       <Routes>
         <React.Fragment>
           <Route

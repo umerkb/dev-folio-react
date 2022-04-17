@@ -1388,3 +1388,6 @@ footer .credits a {
 body {
   background-color: black !important;
 }
+.app-container{
+  min-height: 81.35vh;
+}

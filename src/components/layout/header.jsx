@@ -7,7 +7,7 @@ const Header = () => {
     <header id="header" className="fixed-top bg-black">
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
-          <Link to="/">DevFolio-React</Link>
+          <Link to={`${process.env.PUBLIC_URL}/`}>DevFolio-React</Link>
         </h1>
         <NavBar></NavBar>
       </div>

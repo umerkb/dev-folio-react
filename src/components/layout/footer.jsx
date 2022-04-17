@@ -1,17 +1,16 @@
 const Footer = () => {
   return (
-    <footer className="footer fixed-bottom">
+    <footer className="footer">
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            <div className="copyright-box">
-              <p className="copyright">
-                &copy; Copyright <strong>DevFolio</strong>. All Rights Reserved
-              </p>
-              <div className="credits">
-                Designed by{" "}
-                <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+            <div className="copyright-box d-flex justify-content-between">
+              <span className="copyright">
+                &copy; Copyright <strong>DevFolio</strong>(Design & markup).
+              </span>
+              <span>
+                React implementation by <strong>Umer Khalid Butt</strong>
+              </span>
             </div>
           </div>
         </div>
