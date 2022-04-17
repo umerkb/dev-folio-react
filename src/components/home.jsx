@@ -1,5 +1,22 @@
+import React, { useState, useEffect } from "react";
+import db from "../firebase.config";
 import Typed from "react-typed";
+
+import { collection, getDocs } from "firebase/firestore/lite";
+
 const Home = () => {
+  const [homeData] = useState({});
+  const fetHomeData = async () => {
+    // const response = db.collection("Sections");
+    // const data = await response.get();
+    const data = collection(db, "sections");
+    const sectionSnapshot = await getDocs(data);
+    const cityList = sectionSnapshot.docs.map((doc) => doc.data());
+    console.log(cityList);
+  };
+  useEffect(() => {
+    fetHomeData();
+  }, []);
   return (
     <div id="hero" className="hero route bg-image">
       <div className="overlay-itro"></div>
