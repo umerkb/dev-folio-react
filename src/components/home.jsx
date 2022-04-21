@@ -11,19 +11,22 @@ const Home = () => {
     // const data = await response.get();
     const data = collection(db, "sections");
     const sectionSnapshot = await getDocs(data);
-    const cityList = sectionSnapshot.docs.map((doc) => doc.data());
-    console.log(cityList);
+    const sectionList = sectionSnapshot.docs.map((doc) => doc.data());
+    console.log(sectionList);
   };
   useEffect(() => {
     fetHomeData();
   }, []);
   return (
-    <div id="hero" className="hero route bg-image">
+    <div id="hero" className="hero route">
       <div className="overlay-itro"></div>
       <div className="hero-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="hero-title mb-4">I am Umer Khalid Butt</h1>
+            <h1 className="text-white">Hola!</h1>
+            <h1 className="hero-title mb-4">
+              I'm <i>Umer Khalid</i>
+            </h1>
             <p className="hero-subtitle">
               <Typed
                 strings={[

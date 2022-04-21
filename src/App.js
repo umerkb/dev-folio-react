@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "jquery/dist/jquery.js";
 import "bootstrap/dist/js/bootstrap.js";
 import Header from "./components/layout/header";
 import Content from "./components/layout/content";
@@ -10,7 +11,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App bg-image">
         <Header />
         <Content />
         <Footer />

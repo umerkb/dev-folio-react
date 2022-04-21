@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import * as Icons from "react-bootstrap-icons";
 
 const NavBar = () => {
   return (
@@ -6,20 +7,17 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink
-            activeClassName="active"
             className="nav-link scrollto"
-            exact
             to={`${process.env.PUBLIC_URL}/`}
           >
             Home
           </NavLink>
-          {/* <a className="nav-link scrollto active" href="#hero">
+          {/* <a className="-link scrollto active" href="#hero">
             Home
           </NavLink> */}
         </li>
         <li>
           <NavLink
-            activeClassName="active"
             className="nav-link scrollto"
             to={`${process.env.PUBLIC_URL}/about`}
           >
@@ -28,7 +26,6 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            activeClassName="active"
             className="nav-link scrollto"
             to={`${process.env.PUBLIC_URL}/services`}
           >
@@ -37,7 +34,6 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            activeClassName="active"
             className="nav-link scrollto "
             to={`${process.env.PUBLIC_URL}/work`}
           >
@@ -46,7 +42,6 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            activeClassName="active"
             className="nav-link scrollto"
             to={`${process.env.PUBLIC_URL}/contact`}
           >
@@ -54,7 +49,7 @@ const NavBar = () => {
           </NavLink>
         </li>
       </ul>
-      <i className="bi bi-list mobile-nav-toggle"></i>
+      <Icons.List className="mobile-nav-toggle"></Icons.List>
     </nav>
   );
 };
