@@ -13,9 +13,6 @@ const NavBar = () => {
           >
             Home
           </NavLink>
-          {/* <a className="nav-link scrollto active" href="#hero">
-            Home
-          </NavLink> */}
         </li>
         <li>
           <NavLink
