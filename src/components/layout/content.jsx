@@ -6,7 +6,7 @@ import Services from "../services";
 import Work from "../work";
 import React from "react";
 
-const Content = () => {
+const Content = (props) => {
   return (
     <div className="container mt-100 app-container">
       <Routes>

@@ -3,20 +3,27 @@ import db from "../firebase.config";
 import Typed from "react-typed";
 
 import { collection, getDocs } from "firebase/firestore/lite";
+import { useLocation, useParams } from "react-router-dom";
 
-const Home = () => {
-  const [homeData] = useState({});
-  const fetHomeData = async () => {
-    // const response = db.collection("Sections");
-    // const data = await response.get();
-    const data = collection(db, "sections");
-    const sectionSnapshot = await getDocs(data);
-    const sectionList = sectionSnapshot.docs.map((doc) => doc.data());
-    console.log(sectionList);
-  };
+const Home = (props) => {
+  const params = useLocation();
+  console.log(params);
   useEffect(() => {
-    fetHomeData();
+    console.log(params);
+    console.log(props);
   }, []);
+  // const [homeData] = useState({});
+  // const fetHomeData = async () => {
+  //   // const response = db.collection("Sections");
+  //   // const data = await response.get();
+  //   const data = collection(db, "sections");
+  //   const sectionSnapshot = await getDocs(data);
+  //   const sectionList = sectionSnapshot.docs.map((doc) => doc.data());
+  //   console.log(sectionList);
+  // };
+  // useEffect(() => {
+  //   fetHomeData();
+  // }, []);
   return (
     <div id="hero" className="hero route">
       <div className="overlay-itro"></div>
