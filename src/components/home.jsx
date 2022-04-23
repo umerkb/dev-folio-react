@@ -56,4 +56,4 @@ const Home = (props) => {
   );
 };
 
-export default withLoader(Home, "Loading...");
+export default withLoader(Home, "Please wait...");

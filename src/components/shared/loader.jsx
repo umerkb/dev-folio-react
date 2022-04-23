@@ -3,9 +3,11 @@ const Loader = (props) => {
   return (
     <>
       {/* <Icons.Activity></Icons.Activity> */}
-      <div className="spinner-grow text-primary" role="status"></div>
-      <div className="text-white loader">
-        <h3 className="text-white">{props.message}</h3>
+      <div className="d-flex justify-content-center pt-2">
+        <div className="spinner-border text-white mx-2" role="status"></div>
+        <div className="pl-4 ml-2 text-white loader">
+          <h3 className="text-white">{props.message}</h3>
+        </div>
       </div>
     </>
   );
