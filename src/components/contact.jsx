@@ -8,7 +8,10 @@ import WithLoader from "./hoc/withLoader";
 const Contact = (props) => {
   const { setLoading } = props;
 
-  const [pageContents, setPageContents] = useState({});
+  const [pageContents, setPageContents] = useState({
+    EmailForm: {},
+    SocialHandles: {},
+  });
   const getPageContents = async () => {
     const data = collection(db, "sections/Contact/details");
     const dataSnapshot = await getDocs(data);
