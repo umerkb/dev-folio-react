@@ -1,55 +1,44 @@
 import React, { useState, useEffect } from "react";
 import db from "../firebase.config";
 import Typed from "react-typed";
+import withLoader from "./hoc/withLoader";
 
 import { collection, getDocs } from "firebase/firestore/lite";
 import { useLocation, useParams } from "react-router-dom";
+import _ from "lodash";
 
 const Home = (props) => {
-  const params = useLocation();
-  console.log(params);
+  const { setLoading } = props;
+  const [pageContents, setPageContents] = useState({});
+  const getPageContents = async () => {
+    const data = collection(db, "sections/Home/details");
+    const dataSnapshot = await getDocs(data);
+    const pageContents = dataSnapshot.docs.map((doc) => {
+      console.log({ _id: doc.id, ...doc.data() });
+      return { _id: doc.id, ...doc.data() };
+    });
+    setPageContents(pageContents[0]);
+    setLoading(false);
+  };
   useEffect(() => {
-    console.log(params);
-    console.log(props);
+    getPageContents();
   }, []);
-  // const [homeData] = useState({});
-  // const fetHomeData = async () => {
-  //   // const response = db.collection("Sections");
-  //   // const data = await response.get();
-  //   const data = collection(db, "sections");
-  //   const sectionSnapshot = await getDocs(data);
-  //   const sectionList = sectionSnapshot.docs.map((doc) => doc.data());
-  //   console.log(sectionList);
-  // };
-  // useEffect(() => {
-  //   fetHomeData();
-  // }, []);
+
+  let { WelcomeText, IntroductionText, skills } = pageContents || {};
   return (
     <div id="hero" className="hero route">
       <div className="overlay-itro"></div>
       <div className="hero-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="text-white">Hola!</h1>
-            <h1 className="hero-title mb-4">
-              I'm <i>Umer Khalid</i>
-            </h1>
+            <h1 className="text-white">{pageContents.WelcomeText}</h1>
+            <h1 className="hero-title mb-4">{pageContents.IntroductionText}</h1>
             <p className="hero-subtitle">
               <Typed
-                strings={[
-                  "Software Architect",
-                  "Web Developer",
-                  "Mobile Developer",
-                  "Cyclist",
-                  "Keto Guru",
-                ]}
+                strings={skills ? pageContents.skills : [""]}
                 typeSpeed={80}
                 loop
               ></Typed>
-              <span
-                className="typed"
-                data-typed-items="Designer, Developer, Freelancer, Photographer"
-              ></span>
             </p>
             <p className="pt-3 hidden">
               <a
@@ -67,4 +56,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default withLoader(Home, "Loading...");

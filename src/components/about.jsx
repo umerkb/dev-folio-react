@@ -1,16 +1,30 @@
 import profilePic from "../assets/img/testimonial-2.jpg";
 import { ProgressBar } from "react-bootstrap";
 import WithLoader from "./hoc/withLoader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore/lite";
+import db from "../firebase.config";
+import _ from "lodash";
 
 const About = (props) => {
   const { setLoading } = props;
+  const [pageContents, setPageContents] = useState({});
+  const getPageContents = async () => {
+    const data = collection(db, "sections/About/details");
+    const dataSnapshot = await getDocs(data);
+    const pageContents = dataSnapshot.docs.map((doc) => {
+      console.log({ _id: doc.id, ...doc.data() });
+      return { _id: doc.id, ...doc.data() };
+    });
+    setPageContents(pageContents[0]);
+    setLoading(false);
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    getPageContents();
   }, []);
 
+  const { Name, Profile, Email, Phone, AboutMe, skills } = pageContents;
   return (
     <section id="about" className="about-mf sect-pt4 route">
       <div className="container">
@@ -36,7 +50,7 @@ const About = (props) => {
                             <span className="title-s">Name: </span>
                           </div>
                           <div className="col-md-9 text-left text-left">
-                            <span>Umer Khalid Butt</span>
+                            <span>{Name}</span>
                           </div>
                         </div>
                         <div className="row w-100">
@@ -44,7 +58,7 @@ const About = (props) => {
                             <span className="title-s text-right">Profile:</span>
                           </div>
                           <div className="col-md-9 text-left">
-                            <span>Full Stack Developer</span>
+                            <span>{Profile}</span>
                           </div>
                         </div>
                         <div className="row w-100">
@@ -52,7 +66,7 @@ const About = (props) => {
                             <span className="title-s">Email: </span>
                           </div>
                           <div className="col-md-9 text-left">
-                            <span>butt.umer1@gmail.com</span>
+                            <span>{Email}</span>
                           </div>
                         </div>
                         <div className="row w-100">
@@ -60,7 +74,7 @@ const About = (props) => {
                             <span className="title-s">Phone: </span>
                           </div>
                           <div className="col-md-9 text-left">
-                            <span>111-111-111</span>
+                            <span>{Phone}</span>
                           </div>
                         </div>
                       </div>
@@ -68,23 +82,21 @@ const About = (props) => {
                   </div>
                   <div className="skill-mf text-left">
                     <p className="title-s">Skill</p>
-                    <span>HTML</span> <span className="pull-right">85%</span>
-                    <div className="progressBar">
-                      <ProgressBar now={85} />
-                    </div>
-                    <span>CSS3</span> <span className="pull-right">75%</span>
-                    <div className="progressBar">
-                      <ProgressBar now={75} />
-                    </div>
-                    <span>PHP</span> <span className="pull-right">50%</span>
-                    <div className="progressBar">
-                      <ProgressBar now={50} />
-                    </div>
-                    <span>JAVASCRIPT</span>{" "}
-                    <span className="pull-right">90%</span>
-                    <div className="progressBar">
-                      <ProgressBar now={90} />
-                    </div>
+                    {_.chain(skills)
+                      .filter((skill) => skill.IsActive)
+                      .orderBy(["DisplayOrder"], ["asc"])
+                      .map((skill) => {
+                        return (
+                          <div key={skill.SkillName}>
+                            <span>{skill.SkillName} </span>
+                            <span className="pull-right">{skill.Percent}%</span>
+                            <div className="progressBar">
+                              <ProgressBar now={skill.Percent} />
+                            </div>
+                          </div>
+                        );
+                      })
+                      .value()}
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -92,25 +104,7 @@ const About = (props) => {
                     <div className="title-box-2 text-left">
                       <h5 className="title-left">About me</h5>
                     </div>
-                    <p className="lead">
-                      Curabitur non nulla sit amet nisl tempus convallis quis ac
-                      lectus. Curabitur arcu erat, accumsan id imperdiet et,
-                      porttitor at sem. Praesent sapien massa, convallis a
-                      pellentesque nec, egestas non nisi. Nulla porttitor
-                      accumsan tincidunt.
-                    </p>
-                    <p className="lead">
-                      Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
-                      a. Vivamus suscipit tortor eget felis porttitor volutpat.
-                      Vestibulum ac diam sit amet quam vehicula elementum sed
-                      sit amet dui. porttitor at sem.
-                    </p>
-                    <p className="lead">
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi,
-                      pretium ut lacinia in, elementum id enim. Nulla porttitor
-                      accumsan tincidunt. Mauris blandit aliquet elit, eget
-                      tincidunt nibh pulvinar a.
-                    </p>
+                    <p className="lead">{AboutMe}</p>
                   </div>
                 </div>
               </div>

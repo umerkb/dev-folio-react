@@ -1,15 +1,29 @@
-import { useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore/lite";
+import _ from "lodash";
+import { useEffect, useState } from "react";
 import * as Icon from "react-bootstrap-icons";
+import db from "../firebase.config";
 import WithLoader from "./hoc/withLoader";
 
 const Contact = (props) => {
   const { setLoading } = props;
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, []);
 
+  const [pageContents, setPageContents] = useState({});
+  const getPageContents = async () => {
+    const data = collection(db, "sections/Contact/details");
+    const dataSnapshot = await getDocs(data);
+    const pageContents = dataSnapshot.docs.map((doc) => {
+      console.log({ _id: doc.id, ...doc.data() });
+      return { _id: doc.id, ...doc.data() };
+    });
+    setPageContents(pageContents[0]);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getPageContents();
+  }, []);
+  const { EmailForm, SocialHandles } = pageContents;
   return (
     <section
       id="contact"
@@ -24,7 +38,7 @@ const Contact = (props) => {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="title-box-2">
-                      <h5 className="title-left">Say Hello !</h5>
+                      <h5 className="title-left">{EmailForm.Title}</h5>
                     </div>
                     <div>
                       <form
@@ -93,7 +107,7 @@ const Contact = (props) => {
                               type="submit"
                               className="button button-a button-big button-rouded"
                             >
-                              Send Message
+                              {EmailForm.SendButtonText}
                             </button>
                           </div>
                         </div>
@@ -102,57 +116,38 @@ const Contact = (props) => {
                   </div>
                   <div className="col-md-6 text-left text-black">
                     <div className="title-box-2 pt-4 pt-md-0">
-                      <h5 className="title-left">Get in Touch</h5>
+                      <h5 className="title-left">{SocialHandles.Title}</h5>
                     </div>
                     <div className="more-info">
-                      <p className="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Facilis dolorum dolorem soluta quidem expedita aperiam
-                        aliquid at. Totam magni ipsum suscipit amet? Autem nemo
-                        esse laboriosam ratione nobis mollitia inventore?
-                      </p>
+                      <p className="lead">{SocialHandles.Description}</p>
                       <ul className="list-ico">
                         <li>
-                          <Icon.GeoAlt /> 329 WASHINGTON ST BOSTON, MA 02108
+                          <Icon.GeoAlt /> {SocialHandles.Address}
                         </li>
                         <li>
-                          <Icon.Phone /> (617) 557-0089
+                          <Icon.Phone /> {SocialHandles.Phone}
                         </li>
                         <li>
-                          <Icon.Envelope /> contact@example.com
+                          <Icon.Envelope /> {SocialHandles.Email}
                         </li>
                       </ul>
                     </div>
                     <div className="socials">
                       <ul>
-                        <li>
-                          <a href="">
-                            <span className="ico-circle">
-                              <Icon.Facebook />
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="">
-                            <span className="ico-circle">
-                              <Icon.Instagram />
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="">
-                            <span className="ico-circle">
-                              <Icon.Twitter />
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="">
-                            <span className="ico-circle">
-                              <Icon.Linkedin />
-                            </span>
-                          </a>
-                        </li>
+                        {_.chain(SocialHandles.handles)
+                          .sortBy(["DisplayOrder"], ["asc"])
+                          .map((handle) => {
+                            return (
+                              <li key={handle._id} title={handle.Name}>
+                                <a href={handle.Url || "#"}>
+                                  <span className="ico-circle">
+                                    <i className={handle.Icon}></i>
+                                  </span>
+                                </a>
+                              </li>
+                            );
+                          })
+                          .value()}
                       </ul>
                     </div>
                   </div>

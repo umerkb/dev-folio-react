@@ -38,9 +38,6 @@ const NavBar = (props) => {
                   className="nav-link scrollto"
                   to={{
                     pathname: `${process.env.PUBLIC_URL}${menu.data.Url}`,
-                    routeProps: { componentId: menu._id },
-                    state: { componentId: menu._id },
-                    userProps: { name: "This is a passed prop" },
                   }}
                 >
                   {menu.data.Name}
