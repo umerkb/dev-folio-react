@@ -5,9 +5,10 @@ The idea behind this project is to turn this static portfolio into a full-fledge
 
 ## Current Version
 
-As a first step, the static HTML based portfolio has been converted into a ReactJS based single page app with client side routing. 
-###Front End: ReactJS
-###Backend: Google Firestore
+As a first step, the static HTML based portfolio has been converted into a dynamic ReactJS based single page app with client side routing. 
+
+### Front End: ReactJS
+### Backend: Google Firestore
 
 
 ## Next Steps
