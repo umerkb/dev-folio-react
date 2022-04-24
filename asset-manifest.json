@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dev-folio-react/static/css/main.d38e920d.css",
-    "main.js": "/dev-folio-react/static/js/main.54637c83.js",
+    "main.css": "/dev-folio-react/static/css/main.416001ca.css",
+    "main.js": "/dev-folio-react/static/js/main.92ffa15f.js",
     "static/js/787.3f36c960.chunk.js": "/dev-folio-react/static/js/787.3f36c960.chunk.js",
     "static/media/hero-bg.jpg": "/dev-folio-react/static/media/hero-bg.5f88fdc5db7583d6e960.jpg",
     "static/media/bootstrap-icons.woff?": "/dev-folio-react/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
@@ -9,12 +9,12 @@
     "static/media/work-1.jpg": "/dev-folio-react/static/media/work-1.4630cb37f0a74c36500a.jpg",
     "static/media/testimonial-2.jpg": "/dev-folio-react/static/media/testimonial-2.43b1d186b8b7e2bf88d2.jpg",
     "index.html": "/dev-folio-react/index.html",
-    "main.d38e920d.css.map": "/dev-folio-react/static/css/main.d38e920d.css.map",
-    "main.54637c83.js.map": "/dev-folio-react/static/js/main.54637c83.js.map",
+    "main.416001ca.css.map": "/dev-folio-react/static/css/main.416001ca.css.map",
+    "main.92ffa15f.js.map": "/dev-folio-react/static/js/main.92ffa15f.js.map",
     "787.3f36c960.chunk.js.map": "/dev-folio-react/static/js/787.3f36c960.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d38e920d.css",
-    "static/js/main.54637c83.js"
+    "static/css/main.416001ca.css",
+    "static/js/main.92ffa15f.js"
   ]
 }
