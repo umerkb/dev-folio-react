@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from "react";
-import * as Icon from "react-bootstrap-icons";
-import Work1 from "../assets/img/work-1.jpg";
-import Work2 from "../assets/img/work-2.jpg";
-import Work3 from "../assets/img/work-3.jpg";
-import Work4 from "../assets/img/work-4.jpg";
-import Work5 from "../assets/img/work-5.jpg";
-import Work6 from "../assets/img/work-6.jpg";
-import Testimonial2 from "../assets/img/testimonial-2.jpg";
-import Testimonial4 from "../assets/img/testimonial-4.jpg";
-import WithLoader from "./hoc/withLoader";
-import { Navigation, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import { collection, getDocs } from "firebase/firestore/lite";
-import db from "../firebase.config";
+import * as Icon from "react-bootstrap-icons";
+import React, { useEffect, useState } from "react";
+import { Navigation, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import WithLoader from "./hoc/withLoader";
+import Work1 from "../assets/img/work-1.jpg";
+import Testimonial2 from "../assets/img/testimonial-2.jpg";
 import _ from "lodash";
 
 const Work = (props) => {

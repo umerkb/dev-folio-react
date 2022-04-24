@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import db from "../firebase.config";
 import Typed from "react-typed";
 import withLoader from "./hoc/withLoader";
-
-import { collection, getDocs } from "firebase/firestore/lite";
-import { useLocation, useParams } from "react-router-dom";
 import _ from "lodash";
 
 const Home = (props) => {

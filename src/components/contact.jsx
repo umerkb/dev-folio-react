@@ -1,8 +1,6 @@
-import { collection, getDocs } from "firebase/firestore/lite";
 import _ from "lodash";
-import { useEffect, useState } from "react";
 import * as Icon from "react-bootstrap-icons";
-import db from "../firebase.config";
+import getSortedAndActiveData from "../common/utilities";
 import WithLoader from "./hoc/withLoader";
 
 const Contact = (props) => {
@@ -122,20 +120,19 @@ const Contact = (props) => {
                     </div>
                     <div className="socials">
                       <ul>
-                        {_.chain(SocialHandles.handles)
-                          .sortBy(["DisplayOrder"], ["asc"])
-                          .map((handle) => {
-                            return (
-                              <li key={handle._id} title={handle.Name}>
-                                <a href={handle.Url || "#"}>
-                                  <span className="ico-circle">
-                                    <i className={handle.Icon}></i>
-                                  </span>
-                                </a>
-                              </li>
-                            );
-                          })
-                          .value()}
+                        {getSortedAndActiveData({
+                          list: SocialHandles.handles,
+                        }).map((handle) => {
+                          return (
+                            <li key={handle._id} title={handle.Name}>
+                              <a href={handle.Url || "#"}>
+                                <span className="ico-circle">
+                                  <i className={handle.Icon}></i>
+                                </span>
+                              </a>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>

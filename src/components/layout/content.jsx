@@ -1,10 +1,10 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../about";
 import Home from "../home";
 import Contact from "../contact";
 import Services from "../services";
 import Work from "../work";
-import React from "react";
 
 const Content = (props) => {
   return (

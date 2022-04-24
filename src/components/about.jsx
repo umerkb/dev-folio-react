@@ -1,15 +1,10 @@
 import profilePic from "../assets/img/testimonial-2.jpg";
 import { ProgressBar } from "react-bootstrap";
 import WithLoader from "./hoc/withLoader";
-import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore/lite";
-import db from "../firebase.config";
 import _ from "lodash";
+import { getSortedAndActiveData } from "../common/utilities";
 
 const About = (props) => {
-  const { setLoading } = props;
-  useEffect(() => {}, []);
-
   const { Name, Profile, Email, Phone, AboutMe, skills } = props.data[0] || {};
   return (
     <section id="about" className="about-mf sect-pt4 route">
@@ -68,21 +63,17 @@ const About = (props) => {
                   </div>
                   <div className="skill-mf text-left">
                     <p className="title-s">Skill</p>
-                    {_.chain(skills)
-                      .filter((skill) => skill.IsActive)
-                      .orderBy(["DisplayOrder"], ["asc"])
-                      .map((skill) => {
-                        return (
-                          <div key={skill.SkillName}>
-                            <span>{skill.SkillName} </span>
-                            <span className="pull-right">{skill.Percent}%</span>
-                            <div className="progressBar">
-                              <ProgressBar now={skill.Percent} />
-                            </div>
+                    {getSortedAndActiveData({ list: skills }).map((skill) => {
+                      return (
+                        <div key={skill.SkillName}>
+                          <span>{skill.SkillName} </span>
+                          <span className="pull-right">{skill.Percent}%</span>
+                          <div className="progressBar">
+                            <ProgressBar now={skill.Percent} />
                           </div>
-                        );
-                      })
-                      .value()}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="col-md-6">

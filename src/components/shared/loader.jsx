@@ -1,8 +1,6 @@
-import * as Icons from "react-bootstrap-icons";
 export const Loader = (props) => {
   return (
     <>
-      {/* <Icons.Activity></Icons.Activity> */}
       <div className="d-flex justify-content-center pt-2">
         <div className="spinner-border text-white mx-2" role="status"></div>
         <div className="pl-4 ml-2 text-white loader">
