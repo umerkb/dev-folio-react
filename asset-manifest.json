@@ -1,27 +1,20 @@
 {
   "files": {
     "main.css": "/dev-folio-react/static/css/main.fca5d57b.css",
-    "main.js": "/dev-folio-react/static/js/main.446748be.js",
+    "main.js": "/dev-folio-react/static/js/main.81c1c882.js",
     "static/js/787.3f36c960.chunk.js": "/dev-folio-react/static/js/787.3f36c960.chunk.js",
     "static/media/hero-bg.jpg": "/dev-folio-react/static/media/hero-bg.fb08198668c64fcad0b0.jpg",
-    "static/media/work-5.jpg": "/dev-folio-react/static/media/work-5.02a19b20735c76801246.jpg",
     "static/media/bootstrap-icons.woff?": "/dev-folio-react/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
-    "static/media/work-6.jpg": "/dev-folio-react/static/media/work-6.94c5564ed1fa0ec18cae.jpg",
-    "static/media/work-3.jpg": "/dev-folio-react/static/media/work-3.e0c25c9eaa0afe950232.jpg",
     "static/media/bootstrap-icons.woff2?": "/dev-folio-react/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
-    "static/media/work-4.jpg": "/dev-folio-react/static/media/work-4.193607b0a57ebb67215d.jpg",
-    "static/media/work-2.jpg": "/dev-folio-react/static/media/work-2.cd2e48792253bd65aaf4.jpg",
     "static/media/work-1.jpg": "/dev-folio-react/static/media/work-1.4630cb37f0a74c36500a.jpg",
-    "static/media/testimonial-4.jpg": "/dev-folio-react/static/media/testimonial-4.69bbbc4bc2bfd104b4b8.jpg",
     "static/media/testimonial-2.jpg": "/dev-folio-react/static/media/testimonial-2.43b1d186b8b7e2bf88d2.jpg",
-    "static/media/logo.svg": "/dev-folio-react/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/dev-folio-react/index.html",
     "main.fca5d57b.css.map": "/dev-folio-react/static/css/main.fca5d57b.css.map",
-    "main.446748be.js.map": "/dev-folio-react/static/js/main.446748be.js.map",
+    "main.81c1c882.js.map": "/dev-folio-react/static/js/main.81c1c882.js.map",
     "787.3f36c960.chunk.js.map": "/dev-folio-react/static/js/787.3f36c960.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fca5d57b.css",
-    "static/js/main.446748be.js"
+    "static/js/main.81c1c882.js"
   ]
 }
