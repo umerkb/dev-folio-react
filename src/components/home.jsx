@@ -8,34 +8,18 @@ import { useLocation, useParams } from "react-router-dom";
 import _ from "lodash";
 
 const Home = (props) => {
-  const { setLoading } = props;
-  const [pageContents, setPageContents] = useState({});
-  const getPageContents = async () => {
-    const data = collection(db, "sections/Home/details");
-    const dataSnapshot = await getDocs(data);
-    const pageContents = dataSnapshot.docs.map((doc) => {
-      console.log({ _id: doc.id, ...doc.data() });
-      return { _id: doc.id, ...doc.data() };
-    });
-    setPageContents(pageContents[0]);
-    setLoading(false);
-  };
-  useEffect(() => {
-    getPageContents();
-  }, []);
-
-  let { WelcomeText, IntroductionText, skills } = pageContents || {};
+  let { WelcomeText, IntroductionText, skills } = props.data[0] || {};
   return (
     <div id="hero" className="hero route">
       <div className="overlay-itro"></div>
       <div className="hero-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="text-white">{pageContents.WelcomeText}</h1>
-            <h1 className="hero-title mb-4">{pageContents.IntroductionText}</h1>
+            <h1 className="text-white">{WelcomeText}</h1>
+            <h1 className="hero-title mb-4">{IntroductionText}</h1>
             <p className="hero-subtitle">
               <Typed
-                strings={skills ? pageContents.skills : [""]}
+                strings={skills ? skills : [""]}
                 typeSpeed={80}
                 loop
               ></Typed>
@@ -56,4 +40,4 @@ const Home = (props) => {
   );
 };
 
-export default withLoader(Home, "Please wait...");
+export default withLoader(Home, "sections/Home/details", "Please wait...");

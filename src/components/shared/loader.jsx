@@ -1,5 +1,5 @@
 import * as Icons from "react-bootstrap-icons";
-const Loader = (props) => {
+export const Loader = (props) => {
   return (
     <>
       {/* <Icons.Activity></Icons.Activity> */}

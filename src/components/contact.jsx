@@ -8,25 +8,10 @@ import WithLoader from "./hoc/withLoader";
 const Contact = (props) => {
   const { setLoading } = props;
 
-  const [pageContents, setPageContents] = useState({
+  const { EmailForm, SocialHandles } = props.data[0] || {
     EmailForm: {},
     SocialHandles: {},
-  });
-  const getPageContents = async () => {
-    const data = collection(db, "sections/Contact/details");
-    const dataSnapshot = await getDocs(data);
-    const pageContents = dataSnapshot.docs.map((doc) => {
-      console.log({ _id: doc.id, ...doc.data() });
-      return { _id: doc.id, ...doc.data() };
-    });
-    setPageContents(pageContents[0]);
-    setLoading(false);
   };
-
-  useEffect(() => {
-    getPageContents();
-  }, []);
-  const { EmailForm, SocialHandles } = pageContents;
   return (
     <section
       id="contact"
@@ -164,4 +149,8 @@ const Contact = (props) => {
   );
 };
 
-export default WithLoader(Contact, "Please wait...");
+export default WithLoader(
+  Contact,
+  "sections/Contact/details",
+  "Please wait..."
+);

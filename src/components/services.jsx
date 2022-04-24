@@ -8,24 +8,7 @@ import { collection, getDocs } from "firebase/firestore/lite";
 import db from "../firebase.config";
 import _ from "lodash";
 const Services = (props) => {
-  const { setLoading } = props;
-  const [pageContents, setPageContents] = useState({});
-  const getPageContents = async () => {
-    const data = collection(db, "sections/Services/details");
-    const dataSnapshot = await getDocs(data);
-    const pageContents = dataSnapshot.docs.map((doc) => {
-      console.log({ _id: doc.id, ...doc.data() });
-      return { _id: doc.id, ...doc.data() };
-    });
-    setPageContents(pageContents[0]);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getPageContents();
-  }, []);
-
-  const { Title, Description, services, stats } = pageContents;
+  const { Title, Description, services, stats } = props.data[0] || {};
   return (
     <React.Fragment>
       <section id="services" className="services-mf pt-5 route">
@@ -95,4 +78,8 @@ const Services = (props) => {
   );
 };
 
-export default WithLoader(Services, "Please wait...");
+export default WithLoader(
+  Services,
+  "sections/Services/details",
+  "Please wait..."
+);

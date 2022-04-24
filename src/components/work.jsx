@@ -19,23 +19,8 @@ import db from "../firebase.config";
 import _ from "lodash";
 
 const Work = (props) => {
-  const { setLoading } = props;
-  const [pageContents, setPageContents] = useState({});
-  const getPageContents = async () => {
-    const data = collection(db, "sections/Work/details");
-    const dataSnapshot = await getDocs(data);
-    const pageContents = dataSnapshot.docs.map((doc) => {
-      console.log({ _id: doc.id, ...doc.data() });
-      return { _id: doc.id, ...doc.data() };
-    });
-    setPageContents(pageContents[0]);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getPageContents();
-  }, []);
-  const { Title, Description, portfolio, recommendations } = pageContents;
+  const { Title, Description, portfolio, recommendations } =
+    props.data[0] || {};
 
   return (
     <React.Fragment>
@@ -147,4 +132,4 @@ const Work = (props) => {
   );
 };
 
-export default WithLoader(Work, "Please wait...");
+export default WithLoader(Work, "sections/Work/details", "Please wait...");

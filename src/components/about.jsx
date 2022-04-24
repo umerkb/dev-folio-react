@@ -8,23 +8,9 @@ import _ from "lodash";
 
 const About = (props) => {
   const { setLoading } = props;
-  const [pageContents, setPageContents] = useState({});
-  const getPageContents = async () => {
-    const data = collection(db, "sections/About/details");
-    const dataSnapshot = await getDocs(data);
-    const pageContents = dataSnapshot.docs.map((doc) => {
-      console.log({ _id: doc.id, ...doc.data() });
-      return { _id: doc.id, ...doc.data() };
-    });
-    setPageContents(pageContents[0]);
-    setLoading(false);
-  };
+  useEffect(() => {}, []);
 
-  useEffect(() => {
-    getPageContents();
-  }, []);
-
-  const { Name, Profile, Email, Phone, AboutMe, skills } = pageContents;
+  const { Name, Profile, Email, Phone, AboutMe, skills } = props.data[0] || {};
   return (
     <section id="about" className="about-mf sect-pt4 route">
       <div className="container">
@@ -116,4 +102,4 @@ const About = (props) => {
   );
 };
 
-export default WithLoader(About, "Please wait...");
+export default WithLoader(About, "sections/About/details", "Please wait...");

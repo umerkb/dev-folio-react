@@ -7,40 +7,21 @@ import _ from "lodash";
 import withLoader from "../hoc/withLoader";
 
 const NavBar = (props) => {
-  const { setLoading } = props;
-  const [menus, setMenus] = useState([]);
-  const getMenus = async () => {
-    // const response = db.collection("Sections");
-    // const data = await response.get();
-    const data = collection(db, "sections");
-    const menusSnapshot = await getDocs(data);
-    const menus = menusSnapshot.docs.map((doc) => {
-      console.log(doc);
-      return { _id: doc.id, data: doc.data() };
-    });
-    setMenus(menus);
-    setLoading(false);
-    console.log(menus);
-  };
-
-  useEffect(() => {
-    getMenus();
-  }, []);
   return (
     <nav id="navbar" className="navbar">
       <ul>
-        {_.chain(menus)
-          .orderBy(["data.DisplayOrder"], ["asc"])
+        {_.chain(props.data)
+          .orderBy(["DisplayOrder"], ["asc"])
           .map((menu) => {
             return (
               <li key={menu._id}>
                 <NavLink
                   className="nav-link scrollto"
                   to={{
-                    pathname: `${process.env.PUBLIC_URL}${menu.data.Url}`,
+                    pathname: `${process.env.PUBLIC_URL}${menu.Url}`,
                   }}
                 >
-                  {menu.data.Name}
+                  {menu.Name}
                 </NavLink>
               </li>
             );
@@ -52,4 +33,4 @@ const NavBar = (props) => {
   );
 };
 
-export default withLoader(NavBar);
+export default withLoader(NavBar, "sections", "");
