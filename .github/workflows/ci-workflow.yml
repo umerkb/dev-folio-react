@@ -18,6 +18,7 @@ jobs:
       - run: npm run build
         env:
           CI: ""
+          REACT_APP_FIREBASE_CONFIG: ${{ secrets.REACT_APP_FIREBASE_CONFIG }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
