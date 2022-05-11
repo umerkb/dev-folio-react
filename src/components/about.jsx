@@ -1,7 +1,6 @@
 import profilePic from "../assets/img/testimonial-2.jpg";
 import { ProgressBar } from "react-bootstrap";
 import WithLoader from "./hoc/withLoader";
-import _ from "lodash";
 import { getSortedAndActiveData } from "../common/utilities";
 
 const About = (props) => {

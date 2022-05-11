@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import * as Icons from "react-bootstrap-icons";
 import getData from "../../services/fireStoreService";
 import Loader from "../shared/loader";
 

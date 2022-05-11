@@ -1,6 +1,5 @@
 import * as Icons from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import _ from "lodash";
 import withLoader from "../hoc/withLoader";
 import getSortedAndActiveData from "../../common/utilities";
 

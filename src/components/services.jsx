@@ -1,5 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import React, { useState } from "react";
+import React from "react";
 import _ from "lodash";
 import CountUp from "react-countup";
 import WithLoader from "./hoc/withLoader";
